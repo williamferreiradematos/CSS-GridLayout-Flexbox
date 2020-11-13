@@ -27,6 +27,9 @@ img {
   max-width: 100%; /* Permite expandir ao maximo do tamanho da imagem */
   display: block;
 }
+body {
+  margin-bottom: 100px;
+}
 
 .header {
   background: #1d1e20;
@@ -55,11 +58,57 @@ img {
 .flex {
   display: flex;
   flex-wrap: wrap; /* permite a quebra de linha no display flex aplicado na classe .flex */
-  max-width: 800px; /* limita o container na quantidade de pixels definida */
+  max-width: 800px; /* limita o width na quantidade de pixels definida */
   margin: 0 auto; /* alinha ao centro */
 }
 
 .flex > div {
   flex: 1 1 200px; /* limita no mínimo 200px de largura */
   margin: 10px;
+}
+
+/* CSS GRID 1 */
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Cada 1fr corresponde a uma unidade fracional = divide em 3 partes(colunas) com 33.33% basicamente*/
+  max-width: 800px; /* limita o width */
+  padding: 10px;
+  margin: 0 auto; /* centraliza */
+  grid-gap: 20px; /* ajustar os gaps entre os conteúdos da mesma forma que o margin */
+}
+
+.grid1 > div:nth-child(n + 4) {
+  /* seleciona a partir do quarto item de .grid1 */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  align-items: center; /* alinhou o texto no centro */
+}
+
+.grid1 > div.anuncio {
+  grid-column: 1; /* força a posição do elemento na linha 1 */
+  grid-row: 2 / 5; /* diz a div com a classe .anuncio que ela deve pegar desde a linha 2 até a linha 5 */
+  /* background: tomato; */
+  display: block;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .grid1 {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* se for < 600px altera de 3 colunas para  2 */
+  }
+  .grid1 > div:nth-child(n + 4) {
+    display: block; /* no momento que aplica block deixam de ser aplicadas as propriedades de grid*/
+  }
+  .grid1 > div.anuncio {
+    grid-column: auto;
+    grid-row: auto;
+    order: -1; /* altera a ordem na exibição(vai para primeiro item) porém não no DOM */
+  }
 }
