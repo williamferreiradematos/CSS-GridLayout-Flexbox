@@ -1,0 +1,65 @@
+/* Reset styles */
+/* Geral Styles */
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+}
+
+/* Reset "a" tag */
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 100px;
+  /* background: tomato; */
+}
+
+img {
+  max-width: 100%; /* Permite expandir ao maximo do tamanho da imagem */
+  display: block;
+}
+
+.header {
+  background: #1d1e20;
+  display: flex;
+  flex-wrap: wrap; /* Caso a tela for pequena vai permitir com que o conteúdo quebre */
+  justify-content: space-between; /* espaço entre o conteúdo */
+  align-items: center;
+  padding: 20px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  margin-left: 10px;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+}
+
+/* CSS FLEXBOX 1 */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap; /* permite a quebra de linha no display flex aplicado na classe .flex */
+  max-width: 800px; /* limita o container na quantidade de pixels definida */
+  margin: 0 auto; /* alinha ao centro */
+}
+
+.flex > div {
+  flex: 1 1 200px; /* limita no mínimo 200px de largura */
+  margin: 10px;
+}
